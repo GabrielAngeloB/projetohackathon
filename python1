@@ -1,0 +1,21 @@
+
+import os
+import sys
+
+# Defina o caminho para o JDK que você instalou
+java_path = r"C:\Program Files (x86)\Java\jre1.8.0_311"  # Altere para o caminho do seu JDK
+
+# Define JAVA_HOME e adiciona o caminho do bin ao PATH
+os.environ['JAVA_HOME'] = java_path
+os.environ['PATH'] += os.pathsep + os.path.join(java_path, 'bin')
+
+# Verifica se o Java foi adicionado corretamente
+print("JAVA_HOME:", os.environ.get('JAVA_HOME'))
+print("PATH:", os.environ.get('PATH'))
+
+# Importa a biblioteca após configurar as variáveis de ambiente
+try:
+    import vlibras_translate
+    print("Importação bem-sucedida do vlibras_translate.")
+except ImportError as e:
+    print(f"Erro ao importar vlibras_translate: {e}")
